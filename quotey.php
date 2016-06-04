@@ -68,6 +68,8 @@ function print_quote() {
 add_action( 'wp_head', 'print_quote' );
 
 // Some styleup to the output
+// Edit the background-color property to match your theme's header.
+// If you see some extra spacing or want more. Edit the margin-top and margin-bottom.
 function quotey_style() {
 	echo "
 	<style type='text/css'>
@@ -81,6 +83,7 @@ function quotey_style() {
                 font-weight: 600;
                 opacity: 0.7 !important;
                 color: white;
+                background-color: #333 !important;
 			}
 	</style>
 	";
