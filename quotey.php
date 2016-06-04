@@ -12,44 +12,29 @@ Version: 1.0
 Author URI: http://hackintoshrevolution.net/members/black-dragon74.1/
 */
 
-function quotey_content() {
+function quotey_custom_content() {
 	// Edit these quotes. In case you want to add more. Add them each. Line by line. One at a time.
+	// Mind the quote symbol on the first and the last line. Mind the colon too.
 	$quotes = 
-	"
-	Live life less ordinary.
-	If you want it, earn it.
-	There is no shortcut to success.
-	No one can make you feel inferior without your consent.
-	The way to get started is to quit talking and begin doing.
-	In order to succeed you have to believe that you can succeed.
-	When opportunity knocks, build a door.
-	To see the rainbow you have to deal with the rain.
-	It doesn't matter how slowly you go until you stop.
-	Keep your eyes on the stars and feet on the ground.
-	It always seems impossible until it's done.
-	If you can dream it. You can do it.
-	Start where you are, use what you have and do what you can.
-	Problems are not stop signs, they are guidelines.
-	Aim for the moon. If you miss, you may hit a star.
-	The secret of getting ahead is getting started.
-	What you plant now, you'll harvest later.
-	Even a stopped clock shows right time twice.
-	Don't watch the clock. Do what it does. Keep moving.
-	Either you run the day or the day runs you.
-	Be kind whenever possible. It is always possible.
-	Expect problems and eat them for breakfast.
-	Quality is not an act. It is a habit.
-	Do not wait to strike till the iron is hot; but make it hot by striking.
-	Things do not happen. Things are made to happen.
-	Go for it now. The future is promised to no one.
-	Even if you fall on your face, you're still moving forward.
-	Arriving at one goal is the starting point to another.
-	There's a way to do it better - find it.
-	A goal is a dream with a deadline.
-	Without hard work, nothing grows but weeds.
-	One finds limits by pushing them.
-	Live a live worth remembering.
-	";
+	"Enter you custom quotes like this.
+	Second like this
+	Third like this
+	And so on";
+
+	// Parse the above quotes into single lines.
+	$quotes = explode( "\n", $quotes );
+
+	// Use wordpress function to randomly choose a line.
+	return wptexturize( $quotes[ mt_rand( 0, count( $quotes ) - 1 ) ] );
+}
+
+function quotey_remote_content() {
+	// Please change this url in case you want to change the fetch location.
+	// The file should be readable without any encryption
+	// It is advised to use simple txt file containing quotes. One in each line.
+	// There are multiple preloaded file of different categories. You just have to change quotes_inspirational.txt to quotes_category.txt
+	// The list of categories can be found in the readme file on the plugin's website (GitHub)
+	$quotes = file_get_contents('https://raw.githubusercontent.com/black-dragon74/Quotey/wordpress/quotes_inspirational.txt');
 
 	// Parse the above quotes into single lines.
 	$quotes = explode( "\n", $quotes );
@@ -60,7 +45,9 @@ function quotey_content() {
 
 // Print a random line. Everytime the page is loaded.
 function print_quote() {
-	$selectedquote = quotey_content();
+	// To use custom content change quotey_remote_content() to quotey_custom_content() in the line below.
+	$selectedquote = quotey_remote_content();
+	// Define a paragraph tag. Don't change anything below this line.
 	echo "<p id='quotey'>$selectedquote</p>";
 }
 
