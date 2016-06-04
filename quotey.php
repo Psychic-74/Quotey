@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Quotey
- * @version 1.0
+ * @version 2.0
  */
 /*
 Plugin Name: Quotey
 Description: A simple plugin which was just created for personal use. No configuration required. When activated it shows a random quote from a predefined list on the top of your header.
 Plugin URI: http://github.com/black-dragon74/Quotey
 Author: black.dragon74
-Version: 1.0
+Version: 2.0
 Author URI: http://hackintoshrevolution.net/members/black-dragon74.1/
 */
 
