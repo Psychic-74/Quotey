@@ -73,7 +73,7 @@ function quotey_style() {
 	<style type='text/css'>
 	#quotey {
                 text-align: center !important;
-                font-family: inherit;
+                font-family: cursive;
                 margin-bottom: 3px;
                 margin-top: 3px;
                 margin-left: auto;
