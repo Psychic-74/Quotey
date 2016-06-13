@@ -43,6 +43,7 @@ You can get some basic css info by googling about that.
 
 # List of predefined quotes (categories) :-
 - Inspirational Quotes | Keyword: quotes_inspirational.txt
+- Romantic Quotes | Keyword: quotes_romantic.txt
 
 # Installation
 Download the RAW zip and upload quotey.php to wp-content/plugins/ directory
