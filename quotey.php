@@ -34,7 +34,7 @@ function quotey_remote_content() {
 	// It is advised to use simple txt file containing quotes. One in each line.
 	// There are multiple preloaded file of different categories. You just have to change quotes_inspirational.txt to quotes_category.txt
 	// The list of categories can be found in the readme file on the plugin's website (GitHub)
-	$quotes = file_get_contents('https://raw.githubusercontent.com/black-dragon74/Quotey/wordpress/quotes_inspirational.txt');
+	$quotes = file_get_contents('https://raw.githubusercontent.com/black-dragon74/Quotey/wordpress/quotes_classy.txt');
 
 	// Parse the above quotes into single lines.
 	$quotes = explode( "\n", $quotes );
