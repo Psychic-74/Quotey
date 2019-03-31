@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Quotey
- * @version 2.0
+ * @version 2.1
  */
 /*
 Plugin Name: Quotey
@@ -9,7 +9,7 @@ Description: A simple plugin which was just created for personal use. No configu
 Plugin URI: http://github.com/black-dragon74/Quotey
 Author: black.dragon74
 Version: 2.0
-Author URI: http://hackintoshrevolution.net/members/black-dragon74.1/
+Author URI: https://portfolio.nicksuniversum.com
 */
 
 function quotey_custom_content() {
@@ -40,7 +40,15 @@ function quotey_remote_content() {
 	$quotes = explode( "\n", $quotes );
 
 	// Use wordpress function to randomly choose a line.
-	return wptexturize( $quotes[ mt_rand( 0, count( $quotes ) - 1 ) ] );
+	$selectedQuote = wptexturize( $quotes[ mt_rand( 0, count( $quotes ) - 1 ) ] );
+
+    // If the selected quote is empty, re-run the whole algo until we have something that is not empty
+    while (empty($selectedQuote)) {
+        $selectedQuote = wptexturize( $quotes[ mt_rand( 0, count( $quotes ) - 1 ) ] );        
+    }
+
+    // Finally return the selected quote
+    return $selectedQuote;
 }
 
 // Print a random line. Everytime the page is loaded.
